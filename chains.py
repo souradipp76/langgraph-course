@@ -10,11 +10,13 @@ from langchain_core.output_parsers.openai_tools import (
     PydanticToolsParser,
 )
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from schemas import AnswerQuestion, ReviseAnswer
 
-llm = ChatOpenAI(model="o4-mini")
+# llm = ChatOpenAI(model="o4-mini")
+llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash")
 parser = JsonOutputToolsParser(return_id=True)
 parser_pydantic = PydanticToolsParser(tools=[AnswerQuestion])
 
